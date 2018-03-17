@@ -1,0 +1,63 @@
+<!--index.wxml-->
+<!--第一个展示墙-->
+<view  class='bg'>
+   <view class='zoomImage' style='background-image:url({{topPic}})'>
+       <text class='h1' >{{snowText}}</text>  
+   
+   </view>
+   
+<view class='bg' style="display:none">
+  <image wx:for="{{images}}" wx:key="id" id="{{item.id}}" src="{{item.pic}}" bindload="onImageLoad"></image>
+</view>
+
+
+<view style="width:100%">
+   <!-- 左边图片 -->
+    <view class="img_item">
+      <view wx:for="{{col1}}" wx:key="id" wx:if="{{item.pic}}" >
+        <image  src="{{item.pic}}" style="width:100%;height:{{item.height}}px" ></image>
+      </view>
+    </view>
+
+
+   <!-- 中间图片 -->
+    <view class="img_item">
+      <view wx:for="{{col2}}" wx:key="id" wx:if="{{item.pic}}" >
+        <image  src="{{item.pic}}" style="width:100%;height:{{item.height}}px"  ></image>
+      </view>
+    </view>
+
+  
+
+     <!-- 右边图片 -->
+    <view class="img_item">
+      <view wx:for="{{col3}}" wx:key="id" wx:if="{{item.pic}}" >
+        <image  src="{{item.pic}}" style="width:100%;height:{{item.height}}px"  ></image>
+      </view>
+    </view>
+
+  </view>
+    <!-- 上传图片测试 -->
+    <view class="uploader">
+        <view class="uploader-text" bindtap="doUpload">
+            <text>上传图片</text>
+        </view>
+        <view class="uploader-container" wx:if="{{imgUrl}}">
+            <image
+                class="uploader-image"
+                src="{{imgUrl}}"
+                mode="aspectFit"
+                bindtap="previewImg"
+            ></image>
+        </view>
+    </view>
+
+
+<!-- 图片上传 -->
+<view class='upload' >
+     <button class='bt' bindtap="doUpload">上传</button>
+</view>
+
+
+
+</view>

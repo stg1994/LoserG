@@ -39,9 +39,16 @@ var showModel = (title, content) => {
 
 }
 
+function json2Form  (json) {
+  var str = [];
+  for (var p in json) {
+    str.push(encodeURIComponent(p) + "=" + encodeURIComponent(json[p]));
+  }
+  return str.join("&");
+}
 
-
-module.exports = { formatTime, showBusy, showSuccess, showModel,
+module.exports = {
+  formatTime, showBusy, showSuccess, showModel, json2Form,
    
   // 一维数组转二维数组
   //listToMatrix(list, elementsPerSubArray) {

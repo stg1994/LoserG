@@ -3,6 +3,7 @@ var qcloud = require('../../vendor/wafer2-client-sdk/index')
 var config = require('../../config')
 var util = require('../../utils/util.js')
 
+
 Page({
 
   /**
@@ -59,11 +60,11 @@ Page({
             {
               wx.request({
               url: config.service.imgUrlData,
-              data: {
+              data: util.json2Form({
                 id: '1',
                 urls: res.data.imgUrl,
-              },
-              header: {'content-type': 'application/json'},
+              }) ,
+              header: { 'content-type': 'application/x-www-form-urlencoded'},
               method: 'POST',
               dataType: 'json',
               responseType: 'text',
@@ -73,6 +74,7 @@ Page({
             })
             }
           },
+
           
           //图片上传到COS对象存储失败
           fail: function (e) {

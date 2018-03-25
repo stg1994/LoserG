@@ -60,15 +60,14 @@ Page({
             {
               wx.request({
               url: config.service.imgUrlData,
-              data: util.json2Form({
-                id: '1',
-                urls: res.data.imgUrl,
-              }) ,
-              header: { 'content-type': 'application/x-www-form-urlencoded'},
+              //data: util.json2Form({id: '1',urls: res.data.imgUrl,}) ,
+              data: ({ id: '1', urls: res.data.imgUrl, }),
+              //header: { 'content-type': 'application/x-www-form-urlencoded'},
+              header: { 'content-type': 'application/json'},
               method: 'POST',
               dataType: 'json',
               responseType: 'text',
-              success: function(res) { console.log("成功打印：",res)},
+              success: function(res) {console.log("成功打印：", res.data.data)},
               fail: function(res) {console.log("错误打印：",res)},
               complete: function(res) {console.log("完成打印：",res)},
             })

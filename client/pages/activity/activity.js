@@ -31,6 +31,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
+    //加载图片地址
+    wx.request({
+      url: config.service.imgUrlData,
+      method: 'GET',
+      header: { 'content-type': 'application/ json'},
+      success: function (res) { console.log(res.data.data) },
+      fail: function (res) { console.log(res) },
+    }),
+
+
+
      this.data.Data = JSON.parse(options.snowData);
     console.log("接收的数据是=" + options.snowData);
     wx.getSystemInfo({
@@ -49,6 +61,7 @@ Page({
       }
     })
   },
+
 
   // 上传图片接口
   doUpload: function () {
@@ -154,9 +167,9 @@ Page({
 
     this.setData(data);
   },
-
-  loadImages: function () {
-    let images = [
+  
+    loadImages: function () {
+    let images =  [
       { pic: "http://pic1.win4000.com/mobile/2018-01-08/5a531db9c0aad.jpg", height: 0 },
       { pic: "http://pic1.win4000.com/mobile/2017-12-22/5a3cac0a3c43d.jpg", height: 0 },
       { pic: "http://pic1.win4000.com/mobile/2017-11-29/5a1e2ba090098.jpg", height: 0 },

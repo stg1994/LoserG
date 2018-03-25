@@ -79,13 +79,21 @@ Page({
   // 获取相册列表
   getAlbumList() {
     //let promise = request({
-    //  method: 'GET',
+    // method: 'GET',
     //  url: config.service.list,
     // });
 
     //setTimeout(() => this.hideLoading(), 1000);
     //return promise;
-    return request({ method: 'GET', url: config.service.photolist });
+    return request({ 
+      method: 'POST', 
+      url: config.service.imgUrlData,
+      data:{id:'1'},
+      header: { 'content-type': 'application/json' },
+      dataType: 'json',
+      responseType: 'text',
+           
+       });
   },
 
 

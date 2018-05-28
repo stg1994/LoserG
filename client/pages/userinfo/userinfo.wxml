@@ -11,6 +11,10 @@
             </block>
         </view>
     </view>
+    <view class="upload-image" bindtap="chooseImage">
+        <image src="/images/camera.png" mode="aspectFit"></image>
+        <text>上传图片</text>
+    </view>
 </scroll-view>
 
 <swiper class="swiper-container" duration="400" current="{{previewIndex}}" bindtap="exitPreviewMode" style="display: {{previewMode ? 'block' : 'none'}};">

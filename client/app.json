@@ -6,7 +6,8 @@
     "pages/meet/meet",
     "pages/userinfo/userinfo",
     "pages/believe/believe",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/girl/girl"
   ],
   "window": {
     "backgroundTextStyle": "light",

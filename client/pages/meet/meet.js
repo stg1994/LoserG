@@ -60,9 +60,7 @@ Page({
             {
               wx.request({
               url: config.service.imgUrlData,
-              //data: util.json2Form({id: '1',urls: res.data.imgUrl,}) ,
               data: ({ id: '1', urls: res.data.imgUrl, }),
-              //header: { 'content-type': 'application/x-www-form-urlencoded'},
               header: { 'content-type': 'application/json'},
               method: 'POST',
               dataType: 'json',

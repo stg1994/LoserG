@@ -21,6 +21,8 @@ router.get('/user', validationMiddleware, controllers.user)
 router.post('/upload', controllers.upload)
 // 图片imgUrl地址上传到MySQL数据库
 router.post('/imgUrlData', controllers.imgUrlData)
+//图片GET地址
+router.get('/imgUrlData',controllers.imgUrlData)
 
 // --- 相册列表获取 Demo ---
 router.get('/photolist', controllers.photolist)

@@ -74,7 +74,7 @@ Page({
   */
   intoActivity1: function () {
     wx.navigateTo({
-      url: '../meet/meet',
+      url: '../girl/girl',
       success: function (res) {
         console.log('跳转到meet页面成功')// success
       },

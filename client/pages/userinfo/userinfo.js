@@ -78,22 +78,11 @@ Page({
 
   // 获取相册列表
   getAlbumList() {
-    //let promise = request({
-    // method: 'GET',
-    //  url: config.service.list,
-    // });
-
-    //setTimeout(() => this.hideLoading(), 1000);
-    //return promise;
-    return request({ 
-      method: 'POST', 
+    let promise = request({
+     method: 'GET',
       url: config.service.imgUrlData,
-      data:{id:'1'},
-      header: { 'content-type': 'application/json' },
-      dataType: 'json',
-      responseType: 'text',
-           
-       });
+     });
+    return promise;
   },
 
 
@@ -101,18 +90,19 @@ Page({
   renderAlbumList() {
     let layoutColumnSize = this.data.layoutColumnSize;
     let layoutList = [];
-    console.log(this.data.albumList.length);
+console.log("1:"+layoutColumnSize);// 3格
+
     if (this.data.albumList.length) {
-      console.log("失败2");
+      console.log("2:"+this.data.albumList.length); // 20个参数地址
       layoutList = util.listToMatrix([0].concat(this.data.albumList), layoutColumnSize);
-      console.log(layoutList);
+      console.log("0"+ layoutList);
       let lastRow = layoutList[layoutList.length - 1];
       if (lastRow.length < layoutColumnSize) {
         let supplement = Array(layoutColumnSize - lastRow.length).fill(0);
         lastRow.push(...supplement);
       }
     }
-    console.log("失败3");
+
     this.setData({ layoutList });
   },
 

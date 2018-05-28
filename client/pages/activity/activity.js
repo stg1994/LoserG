@@ -33,15 +33,6 @@ Page({
   onLoad: function (options) {
     var that = this;
     //加载图片地址
-    wx.request({
-      url: config.service.imgUrlData,
-      method: 'GET',
-      header: { 'content-type': 'application/ json'},
-      success: function (res) { console.log(res.data.data) },
-      fail: function (res) { console.log(res) },
-    }),
-
-
 
      this.data.Data = JSON.parse(options.snowData);
     console.log("接收的数据是=" + options.snowData);
@@ -169,22 +160,48 @@ Page({
   },
   
     loadImages: function () {
-    let images =  [
-      { pic: "http://pic1.win4000.com/mobile/2018-01-08/5a531db9c0aad.jpg", height: 0 },
-      { pic: "http://pic1.win4000.com/mobile/2017-12-22/5a3cac0a3c43d.jpg", height: 0 },
-      { pic: "http://pic1.win4000.com/mobile/2017-11-29/5a1e2ba090098.jpg", height: 0 },
-      { pic: "http://pic1.win4000.com/wallpaper/2018-01-13/5a59bb309e31d.jpg", height: 0 },
-      { pic: "http://pic1.win4000.com/wallpaper/2018-01-12/5a58192674b58.jpg", height: 0 },
-      { pic: "http://pic1.win4000.com/mobile/2017-11-29/5a1e120d3e134.jpg", height: 0 },
-      { pic: "http://pic1.win4000.com/mobile/2017-11-21/5a138dd91ab04.jpg", height: 0 },
-      { pic: "http://pic1.win4000.com/mobile/2017-11-21/5a138dd9d2f83.jpg", height: 0 },
-      { pic: "http://pic1.win4000.com/mobile/2017-11-21/5a138dde46dc5.jpg", height: 0 },
-      { pic: "http://pic1.win4000.com/mobile/2017-11-13/5a097cbda333c.jpg", height: 0 },
-      { pic: "http://pic1.win4000.com/mobile/2017-11-09/5a03ee9880324.jpg", height: 0 },
-      { pic: "http://d.5857.com/wlppr_171214/007.jpg", height: 0 },
-      { pic: "http://d.5857.com/wlppr_171214/005.jpg", height: 0 },
-      { pic: "http://d.5857.com/ttc_171206/001.jpg", height: 0 }
-    ];
+      var that = this;
+      wx.request({
+        url: config.service.imgUrlData,
+        header: { 'content-type': 'application/ json' },
+        method: "GET",
+        dataType: 'json',
+        responseType: 'text',
+        //请求成功，返回数据
+        success: function (res) {
+          var imgList = res.data.data; 
+          for (var i = 0; i < res.data.data.length; ) { 
+              var imgUrl = imgList[i];
+              console.log("这是"+ i +":"+imgUrl);
+              i++; 
+           }
+          
+          console.log(res.data.data.length);
+           },
+
+           //请求失败
+        fail: function (res) { console.log(res) },
+      })
+      
+      
+        let images = [
+        { pic: "http://pic1.win4000.com/mobile/2018-01-08/5a531db9c0aad.jpg", height: 0 },
+        { pic: "http://pic1.win4000.com/mobile/2017-12-22/5a3cac0a3c43d.jpg", height: 0 },
+        { pic: "http://pic1.win4000.com/mobile/2017-11-29/5a1e2ba090098.jpg", height: 0 },
+        { pic: "http://pic1.win4000.com/wallpaper/2018-01-13/5a59bb309e31d.jpg", height: 0 },
+        { pic: "http://pic1.win4000.com/wallpaper/2018-01-12/5a58192674b58.jpg", height: 0 },
+        { pic: "http://pic1.win4000.com/mobile/2017-11-29/5a1e120d3e134.jpg", height: 0 },
+        { pic: "http://pic1.win4000.com/mobile/2017-11-21/5a138dd91ab04.jpg", height: 0 },
+        { pic: "http://pic1.win4000.com/mobile/2017-11-21/5a138dd9d2f83.jpg", height: 0 },
+        { pic: "http://pic1.win4000.com/mobile/2017-11-21/5a138dde46dc5.jpg", height: 0 },
+        { pic: "http://pic1.win4000.com/mobile/2017-11-13/5a097cbda333c.jpg", height: 0 },
+       { pic: "http://pic1.win4000.com/mobile/2017-11-09/5a03ee9880324.jpg", height: 0 },
+        { pic: "http://d.5857.com/wlppr_171214/007.jpg", height: 0 },
+        { pic: "http://d.5857.com/wlppr_171214/005.jpg", height: 0 },
+        { pic: "http://d.5857.com/ttc_171206/001.jpg", height: 0 },
+        
+ 
+      ];
 
     let baseId = "img-" + (+new Date());
 

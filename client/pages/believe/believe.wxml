@@ -1,24 +1,11 @@
-<view class="free-panel-title"></view>
-    <view class="free-WaterfallFlow">
-      <block>
-        <view class="flex-wrap" wx:for="{{images}}" wx:key='{{item.src}}' 
-        wx:if="{{item.id%2!=''}}">
-          <image mode="widthFix" src="{{item.src}}" bindtap='previewImg' ></image>
-          <view class='h1'>{{item.name}}</view>
-          <view>{{item.data}}</view>
-        </view>
-      </block>
-      <block>
-        <view class="flex-wrap" wx:for="{{images}}" wx:key='{{item.src}}'
-        wx:if="{{item.id%2==''}}">
-          <image mode="widthFix" src="{{item.src}}" bindtap='previewImg' ></image>
-          <view class='h1'>{{item.name}}</view>
-          <view>{{item.data}}</view>
-        </view>
-      </block>
+
+<view class="page-body">
+  <view class="page-section tc">
+    <video id="myVideo" style='width:370px' src="http://fs.mv.web.kugou.com/201805282315/d2cb7c2d79542f61b510ce621bf64cc3/G128/M05/10/08/IIcBAFrJ4-qAZSnhAVKNMbwZIdY522.mp4" binderror="videoErrorCallback"  page-gesture controls></video>
+    <view>
+    <text>后来，我们再也回不到从前</text>
     </view>
-
-
-
+  </view>
+</view>
 
     

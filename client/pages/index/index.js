@@ -33,7 +33,7 @@ Page({
     believeText: '相信爱',
     believetext: '遇见你，相信爱',
     believepic: 'http://d.5857.com/ttc_171206/004.jpg',
-    join: '参加',
+    join: 'Join In',
   },
 
   /**

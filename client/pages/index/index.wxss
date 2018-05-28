@@ -58,16 +58,6 @@
   color: #ffffff;
 }
 
-/* 按钮样式 */
-.bt{
-  width: 90px;
-  border-radius: 20px;
-  font-size: 16px;
-  align-content: center;
-  margin-top: 150px;
-  background-color: #000000;
-  color: #ffffff;
-}
 
 /* 用户信息-头像 */
 .userinfo-avatar {

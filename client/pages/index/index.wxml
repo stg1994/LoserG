@@ -3,30 +3,27 @@
 <view>
 
 <!--第一个视图-->
-<view class='bg' >
+<view class='bg' bindtap='intoActivity' >
     <view class='zoomImage' style='background-image:url({{snowpic}})'  >
        <text id='1' class='h1' >{{snowText}}</text>
        <text class='h2'>{{snowtext}}</text>
-       <button class='bt' bindtap='intoActivity' >{{join}}</button>
      </view>
 </view>
 
 
 <!--第二个视图-->
-<view class='bg'>
+<view class='bg' bindtap='intoActivity1'>
     <view  class='zoomImage' style='background-image:url({{meetpic}})' >
        <text id='2' class='h1' >{{meetText}}</text>
        <text class='h2' >{{meettext}}</text>
-       <button class='bt' bindtap='intoActivity1'>{{join}}</button>
      </view>
 </view>
 
 <!--第三个视图-->
-<view class='bg'>
+<view class='bg' bindtap='intoActivity2'>
     <view  class='zoomImage' style='background-image:url({{believepic}})' >
-       <text id='3' class='h1' >{{believeText}}</text>
-       <text class='h2'>{{believeText}}</text>
-       <button class='bt' bindtap='intoActivity2'>{{join}}</button>
+       <text id='3' class='h1'  >{{believeText}}</text>
+       <text class='h2' >{{believeText}}</text>
      </view>
 </view>
 

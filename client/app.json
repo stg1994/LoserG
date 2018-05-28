@@ -4,9 +4,7 @@
     "pages/index/index",
     "pages/activity/activity",
     "pages/meet/meet",
-    "pages/userinfo/userinfo",
     "pages/believe/believe",
-    "pages/logs/logs",
     "pages/girl/girl"
   ],
   "window": {

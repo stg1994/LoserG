@@ -1,0 +1,8 @@
+/* pages/video/fullscreenvideo.wxss */
+
+.video{
+  vertical-align: center;
+}
+
+
+

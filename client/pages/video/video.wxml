@@ -5,14 +5,13 @@
   <!--视频-->
   <swiper-item>
     <scroll-view class="scrollView" scroll-y="true" bindscrolltolower="loadMoreData" bindscrolltoupper="refreshData" >
-      <view style="height:12rpx;background-color:#eaeaea"></view>
-      
-      <view class="item-view" wx:for="{{videoDataList}}"  wx:for-item="item" wx:key="item.id">
-        <navigator url="fullscreenvideo">
+      <view style="height:12rpx;background-color:#eaeaea"></view>  
+      <view class="item-view" wx:for="{{videoDataList}}"  wx:for-item="item" wx:key="item.id" >
+        <navigator url="fullscreenvideo?id={{item.id}}&src={{item.videouri}}&text={{item.text}}">
           <template is="mainTabCell" data="{{item}}" />
         </navigator>
       </view>
-
+      
       <view style="height:12rpx;background-color:#eaeaea"></view>
 </scroll-view>
 </swiper-item>

@@ -1,13 +1,14 @@
 {
   "pages":[
-    "pages/video/video",
+
     "pages/loserg/loserg",
     "pages/index/index",
     "pages/activity/activity",
     "pages/meet/meet",
     "pages/believe/believe",
-    "pages/girl/girl"
-    
+    "pages/girl/girl",
+    "pages/video/video",
+    "pages/video/fullscreenvideo"
   ],
   "window": {
     "backgroundTextStyle": "light",

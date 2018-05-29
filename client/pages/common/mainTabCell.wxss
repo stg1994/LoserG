@@ -6,8 +6,16 @@
   height: 56rpx;
   margin-left: 14rpx;
   margin-top: 14rpx;
-  
 }
+
+/**视频图片*/
+.videophoto{
+  display: flex;
+  height: 200rpx;
+  margin: 0 auto;
+}
+
+
 .title-time{
   flex-direction: column;
   display: inline-block;

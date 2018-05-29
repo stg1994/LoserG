@@ -1,5 +1,6 @@
-<view class="page-body">
-  <view class="page-section tc">
-    <video id="myVideo" style='width:370px' src="{{item.videouri}}" binderror="videoErrorCallback"  page-gesture controls></video>
-  </view>
+<view class="video">
+<video id="myVideo" style='width:370px' src="{{src}}" binderror="videoErrorCallback" direction='0' page-gesture controls autoplay='true' webkit-playsinline ></video>
+</view>
+<view>
+<text>{{text}}</text>
 </view>

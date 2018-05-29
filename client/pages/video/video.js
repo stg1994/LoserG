@@ -9,7 +9,6 @@ var types = ["41"];
 var dataType = 0;
 var page = 1;//页码
 var videoMaxtime = 0;//视频 最大时间
-
 var DATATYPE = {
   VIDEODATATYPE: "41",
 };
@@ -47,18 +46,6 @@ Page({
     })
   },
 
-  //切换顶部标签
-  switchTab: function (e) {
-    dataType = e.currentTarget.dataset.idx;
-    this.setData({
-      currentTopItem: e.currentTarget.dataset.idx
-    });
-    //如果需要加载数据
-    if (this.needLoadNewDataAfterSwiper()) {
-      this.refreshNewData();
-    }
-  },
-
   //swiperChange
   bindChange: function (e) {
     var that = this;
@@ -76,7 +63,6 @@ Page({
   refreshNewData: function () {
     //加载提示框
     util.showLoading();
-
     var that = this;
     var parameters = 'a=list&c=data&type=' + types[dataType];
     console.log("parameters = " + parameters);
@@ -117,7 +103,7 @@ Page({
       case DATATYPE.VIDEODATATYPE:
         videoMaxtime = res.data.info.maxtime;
         target.setData({
-          videoDataList: res.data.list
+          videoDataList: res.data.list,       
         });
         break;
       default:
@@ -127,6 +113,7 @@ Page({
 
   //加载更多操作
   loadMoreData: function () {
+    
     console.log("加载更多");
     //加载提示框
     util.showLoading();
@@ -157,13 +144,10 @@ Page({
 
   //获取视频图片
   getVideoPhoto:function () {
-    switch (types[dataType]){
-      //视频
-      case DATATYPE.VIDEODATATYPE:
-      return videoPhotoUri;
-      default:
-      return 0;
-    }
+    var i = 0;
+    for (i = 0; i < 20; i++) {
+     videoPhotoList =   res.data.list[i].bimageuri
+          };
   },
 
 
@@ -176,6 +160,7 @@ Page({
         target.setData({
           videoDataList: target.data.videoDataList.concat(res.data.list)
         });
+        
         console.log(array);
         break;
       default:
@@ -200,8 +185,6 @@ Page({
     }
     this.videoContext = wx.createVideoContext(obj.currentTarget.id);
   },
+
+
 })
-
-
-
-

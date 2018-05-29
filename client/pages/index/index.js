@@ -92,7 +92,7 @@ Page({
   */
   intoActivity2: function () {
     wx.navigateTo({
-      url: '../believe/believe',
+      url: '../video/video',
       success: function (res) {
         console.log('跳转到believe页面成功')// success
       },

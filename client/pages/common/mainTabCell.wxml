@@ -1,0 +1,35 @@
+<template name="mainTabCell">
+    <!--顶部-->
+    <view class="top">
+        
+            <!--头像-->
+            <image class="avator" src="{{item.profile_image}}" mode="aspectFit"></image>
+
+            <!--标题、时间-->
+            <view class="title-time">
+                <text class="title">{{item.name}}</text>
+                <text class="time">{{item.create_time}}</text>
+            </view>
+            
+            
+            </view>
+            
+            <!--内容-->
+            <view class="content">
+
+            <text class="content-text">{{item.text}}</text>
+
+            <!--大图-->
+            <view class="content-multimedia" hidden="{{(item.bimageuri && (!item.videouri && !item.voiceuri))  ? false : true}}" >
+                <image hidden="{{true}}" src="{{item.bimageuri}}" mode="scaleToFill" style="width:{{item.width}}rpx;height:{{item.height}}rpx;"></image>
+            </view>
+
+            <!--视频-->
+            <view class="content-multimedia" hidden="{{item.videouri ? false : true}}">
+                <video id="{{item.id}}" src="{{item.videouri}}" bindplay="videoPlay" bindended="videoEndPlay" controls style="width:{{item.width}}rpx;height:{{item.height}}rpx;" page-gesture='true' ></video>
+            </view>
+
+            </view>
+            
+
+</template>

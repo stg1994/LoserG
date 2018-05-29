@@ -1,3 +1,4 @@
+const config = require("config.js");
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -69,4 +70,41 @@ function always(promise, callback) {
   return promise;
 }
 
-module.exports = { formatTime, showBusy, showSuccess, showModel, json2Form,listToMatrix,always }
+
+//网络请求
+function request(parameters = "", success, method = "GET", header = {}) {
+  wx.request({
+    url: config.BaseURL + (method == "GET" ? "?" : "") + parameters,
+    data: {},
+    method: method, // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+    header: header ? header : "application/json", // 设置请求的 header
+    success: function (res) {
+      console.log(res);
+      success(res);
+    },
+    fail: function () {
+      // fail
+    },
+    complete: function () {
+      // complete
+    }
+  })
+}
+
+
+//loading提示
+function showLoading(title = "请稍后", duration = 5000) {
+  wx.showToast({
+    title: title,
+    icon: 'loading',
+    duration: (duration <= 0) ? 5000 : duration
+  });
+}
+
+//隐藏提示框
+function hideToast() {
+  wx.hideToast();
+}
+
+
+module.exports = { formatTime, showBusy, showSuccess, showModel, json2Form,listToMatrix,always,request,showLoading,hideToast }

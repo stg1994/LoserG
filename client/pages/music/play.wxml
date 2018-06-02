@@ -1,0 +1,7 @@
+<!--play.wxml-->
+<view wx:for="{{songList}}" wx:for-item="item" wx:key="item.id">
+<audio id ="myAudio" src="{{item.SongUrl}}"  poster='{{item.Image}}' name='{{item.SongName}}' author='{{item.AuthorName}}' loop   controls></audio>
+<view>
+<text>{{item.Lrc}}</text>
+</view>
+</view>

@@ -56,15 +56,12 @@ Page({
   */
   intoActivity: function (event) {
     wx.navigateTo({
-      url: '../activity/activity?snowData='+JSON.stringify(this.data.snowData),
+      url: '../music/music',
       success: function (res) {
-        console.log('跳转到Activity页面成功')// success
+        console.log('跳转到music页面成功')// success
       },
       fail: function () {
-        console.log('跳转到Activity页面失败')  // fail 
-      },
-      complete: function () {
-        console.log('跳转到Activity页面完成') // complete
+        console.log('跳转到music页面失败')  // fail 
       }
     })
   },
@@ -76,13 +73,10 @@ Page({
     wx.navigateTo({
       url: '../girl/girl',
       success: function (res) {
-        console.log('跳转到meet页面成功')// success
+        console.log('跳转到girl页面成功')// success
       },
       fail: function () {
-        console.log('跳转到meet页面失败')  // fail 
-      },
-      complete: function () {
-        console.log('跳转到meet页面完成') // complete
+        console.log('跳转到girl页面失败')  // fail 
       }
     })
   },
@@ -94,35 +88,28 @@ Page({
     wx.navigateTo({
       url: '../video/video',
       success: function (res) {
-        console.log('跳转到believe页面成功')// success
+        console.log('跳转到video页面成功')// success
       },
       fail: function () {
-        console.log('跳转到believe页面失败')  // fail 
-      },
-      complete: function () {
-        console.log('跳转到believe页面完成') // complete
+        console.log('跳转到video页面失败')  // fail 
       }
     })
   },
+
 
   /*
-   *启动进入用户界面
-   */
-  intoUserinfo: function () {
+  *启动进入主页
+  */
+  intoActivity3: function (event) {
     wx.navigateTo({
-      url: '../userinfo/userinfo',
+      url: '../activity/activity?snowData=' + JSON.stringify(this.data.snowData),
       success: function (res) {
-        console.log('跳转到userinfo页面成功')// success
+        console.log('跳转到Activity页面成功')// success
       },
       fail: function () {
-        console.log('跳转到userinfo页面失败')  // fail 
-      },
-      complete: function () {
-        console.log('跳转到userinfo页面完成') // complete
+        console.log('跳转到Activity页面失败')  // fail 
       }
     })
   },
-
-
 
 })

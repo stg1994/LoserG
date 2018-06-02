@@ -28,6 +28,7 @@ App({
     },
 
     globalData: {
-      userInfo: null
+      userInfo: null,
+      globalStop: true,
     }
 })

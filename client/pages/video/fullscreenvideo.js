@@ -1,5 +1,7 @@
-
-
+const util = require("../../utils/util.js");
+var data_id = 0;//帖子的ID
+var page = 1;
+var lastcid = 0;//最后一条评论的ID
 
 Page({
 
@@ -7,7 +9,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    item: {},
+    hotcomemnt_hidden: false,
+    dataList: []
   },
 
   /**
@@ -18,56 +22,69 @@ Page({
      id:options.id,
      src:options.src,
      text:options.text,
-   })
-     
+   });
+   data_id = options.id;
+   //页面初始化 options为页面跳转所带来的参数
+   this.refreshNewData();
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    
-  },
+  //刷新数据
+  refreshNewData: function () {
+    //加载提示框
+    util.showLoading();
+    var that = this;
+    var parameters = 'a=dataList&c=comment&data_id=' + data_id + "&hot=1";
+    console.log("parameters = " + parameters);
+    util.request(parameters, function (res) {
+      page = 1;
+      console.log("最热");
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
-  },
+      var newObj = res.data.hot[0];
+      console.log(newObj);
+      that.setData({
+        hotcomemnt_hidden: newObj ? false : true,
+        item: newObj ? newObj : {},
+        dataList: res.data.data
+      })
+      if (res.data.data.length > 0) {
+        lastcid = res.data.data[res.data.data.length - 1].id;
+      }
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-    
+      setTimeout(function () {
+        util.hideToast();
+        wx.stopPullDownRefresh();
+      }, 1000);
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-    
+  refreshData: function () {
+    console.log("刷新数据");
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-    
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
+  //加载更多操作
   onReachBottom: function () {
-    
-  },
+    console.log("加载更多");
+    //加载提示框
+    util.showLoading();
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    
+    var that = this;
+    var parameters = 'a=dataList&c=comment&data_id=' + data_id + "&page=" + (page + 1) + "&lastcid=" + lastcid;
+    console.log("parameters = " + parameters);
+    util.request(parameters, function (res) {
+
+      if (res.data.data) {
+        page += 1;
+        that.setData({
+          dataList: that.data.dataList.concat(res.data.data)
+        });
+        lastcid = res.data.data[res.data.data.length - 1].id;
+        setTimeout(function () {
+          util.hideToast();
+          wx.stopPullDownRefresh();
+        }, 1000);
+      } else {
+        util.showSuccess("没有新数据了", 300);
+      }
+    });
+
   }
+
 })

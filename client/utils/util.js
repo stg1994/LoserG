@@ -92,6 +92,8 @@ function request(parameters = "", success, method = "GET", header = {}) {
 }
 
 
+
+
 //loading提示
 function showLoading(title = "请稍后", duration = 5000) {
   wx.showToast({
@@ -107,4 +109,8 @@ function hideToast() {
 }
 
 
-module.exports = { formatTime, showBusy, showSuccess, showModel, json2Form,listToMatrix,always,request,showLoading,hideToast }
+
+
+
+module.exports = {
+  formatTime, showBusy, showSuccess, showModel, json2Form, listToMatrix, always, request, showLoading, hideToast}

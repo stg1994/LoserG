@@ -1,0 +1,30 @@
+<!--搜索栏-->
+<view id="search_header">
+  <view id='search_input'>
+    <form bindsubmit='formSubmit'>
+      <view class='form'>
+        <view class='form_input'>
+          <view>
+            <icon type="search" size="16" color="#aaa" />
+          </view>
+          <input auto-focus type='text' maxlength='30' name="SongName" value='{{value}}'  placeholder='搜索歌曲名称'></input>
+        </view>
+        <view class='button'>
+          <button form-type='submit' plain='true' >搜索</button>
+        </view>
+      </view>
+    </form>
+  </view>
+</view>
+
+<!--搜索结果-->
+<view id="search_result">
+  <view class='viewlist' wx:for="{{albumList}}" wx:for-item="item" wx:key="item.id">
+    <navigator url='play?Hash={{item.Hash}}'>
+      <view class='viewlist1' >
+        <text class='text'>{{item.Albumname}}</text>
+        <text class='text'>{{item.Filename}}</text>
+      </view>
+    </navigator>
+  </view>
+</view>

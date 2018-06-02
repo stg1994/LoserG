@@ -1,4 +1,4 @@
-//index.js
+//girl.js
 //获取应用实例
 const app = getApp()
 
@@ -12,7 +12,6 @@ Page({
     oImageIndex: [],
     index: 0,
     tempindex: 0
-
   },
   onReachBottom: function () {
    // console.log('onReachBottom')
@@ -22,6 +21,10 @@ Page({
     });
     requestData(that, mCurrentPage + 1);
   },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
   onLoad: function () {
    // console.log('onLoad')
     var that = this
@@ -40,14 +43,12 @@ Page({
     })
     requestData(that, mCurrentPage + 1);
 
-
-
   },
   loadimg: function (e) {//图片加载完成执行
 
 
     var index = e.currentTarget.id;
-  //  console.log(index)
+    console.log("index是:"+index)
     var oImageIndex = this.data.oImageIndex;
 
     var tempIndex = 0;
@@ -58,7 +59,7 @@ Page({
       }
     }
 
- //   console.log(oImageIndex);
+    console.log(oImageIndex);
     var imgWidth = this.data.imgWidth;//图片设置的宽度
     var oImgW = e.detail.width;//图片原始宽度
     var scal = imgWidth / oImgW;//比例计算
@@ -93,7 +94,7 @@ Page({
       }
       this.data.index = this.data.tempindex
 
-   //   console.log(this.data.index);
+      console.log("?????"+this.data.index);
     }
 
     this.setData({

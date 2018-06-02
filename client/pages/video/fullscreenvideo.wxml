@@ -1,6 +1,16 @@
-<view class="video">
+<import src="commentCell.wxml" />
+
+
+<scroll-view class="scrollview" scroll-y="true">
+    <view class="video">
 <video id="myVideo" style='width:370px' src="{{src}}" binderror="videoErrorCallback" direction='0' page-gesture controls autoplay='true' webkit-playsinline ></video>
 </view>
-<view>
-<text>{{text}}</text>
-</view>
+
+    <view class="newcomment">
+        <text class="comment_text">最新评论</text>
+        <view wx:for="{{dataList}}" wx:for-item="item" wx:key="item.id">
+            <template is="commentCell" data="{{item}}" />
+        </view>
+        
+    </view>
+</scroll-view>

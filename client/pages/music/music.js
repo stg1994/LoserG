@@ -13,6 +13,30 @@ Page({
       },
 
   /**
+   * 下拉清空搜索结果
+   */
+  onPullDownRefresh:function(){
+     wx.showToast({
+       title: '清空搜索结果',
+       icon:'success',
+       duration:1000
+     });
+     wx.clearStorageSync()
+  },
+
+  /**
+   * 上拉提示
+   */
+  onReachBottom:function(){
+    wx.showToast({
+      title: '小姐姐，别拉了，下面啥都没穿',
+      icon:'none',
+      mask:true,
+      duration:2000
+    })
+
+  },
+  /**
    * 搜索提交表单
    */
   formSubmit:function(e){
@@ -24,9 +48,7 @@ Page({
       })
     }
     else{
-
       console.log(e.detail.value);
-     
       /**
        * 请求网站数据
        */
@@ -71,11 +93,9 @@ Page({
               itemList.push({ Hash: Hash[i], Albumid: Albumid[i], Albumname: Albumname[i], Filename: Filename[i] });
             }
 
-            //console.log(itemList)
-
             that.setData({
               albumList: itemList,
-              hidden: true,
+             // hidden: true,
             });
             wx.hideToast();
           },

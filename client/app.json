@@ -1,12 +1,11 @@
 {
   "pages":[
-  "pages/music/music",
     "pages/index/index",
     "pages/activity/activity",
     "pages/meet/meet",
     "pages/girl/girl",
     "pages/video/video",
-  
+    "pages/music/music",
     "pages/video/fullscreenvideo",
     "pages/music/play"
 
@@ -15,7 +14,9 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "LoserG",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh":true,
+    "onReachBottomDistance":10
   },
   "networkTimeout": {
     "request": 10000,
